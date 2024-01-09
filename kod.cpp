@@ -14,19 +14,19 @@ SnackSlot::SnackSlot(short max_snack) {
 VendingMachine::VendingMachine() {};
 VendingMachine::~VendingMachine() {};
 VendingMachine::VendingMachine(short max_slot) {
-	slot_Count = max_slot;
+	slot_Count = 0;
 	slot_masiv_caunt = new SnackSlot[max_slot]();
 }
 void SnackSlot::addSnack(Snack* name_snack) {
-	if (summ_snake <= max_count_snack) {
+	if (summ_snake < max_count_snack) {
 		slot_name[++summ_snake] = *name_snack; 
 	}
 	else
 		cout << "слот полон";
 }
 void VendingMachine::addSlot(SnackSlot* slot) {
-	if (slot_Count > 0) {
-		slot_masiv_caunt[--slot_Count] = *slot;
+	if (slot_Count <slotCount) {
+		slot_masiv_caunt[++slot_Count] = *slot;
 	}
 	else
 		cout << "в автомате нет места для слотов";
